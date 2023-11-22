@@ -1,0 +1,141 @@
+/* div{
+ border: 2px solid black;
+ padding: 2rem;
+} */
+
+header {
+ text-align: center;
+ padding: 1rem;
+ border: 1.5px solid royalblue;
+ background-color: rebeccapurple;
+
+}
+header>ul>li{
+ display: inline-block;
+ padding: 1rem;
+ margin: 11px;
+}
+header>ul>li>a{
+ transition: color 1s ease-in-out;
+}
+header>ul>li:hover a{
+ color: #FE0000;
+}
+
+
+header>ul>li>a{
+ text-decoration: none;
+ font-size: 1.3rem;
+ font-weight: bolder;
+ color: white;
+}
+
+.SectionCard {
+ text-align: center;
+
+}
+
+.SectionCard>.card:nth-child(1) {
+
+ animation: fadeIn 6s;
+
+}
+
+.SectionCard>.card:nth-child(2) {
+
+ animation: fadeIn 7s;
+}
+
+.SectionCard>.card:nth-child(3) {
+
+ animation: fadeIn 10s;
+}
+
+.SectionCard>.card:nth-child(4) {
+
+ animation: fadeIn 11s;
+}
+
+.card {
+ width: 20%;
+ text-align: center;
+ display: inline-block;
+ /* border: 2px solid rebeccapurple; */
+ padding: 1rem;
+
+}
+
+.card-head {
+ transition: box-shadow 1s ease-in-out;
+ cursor: pointer;
+}
+
+@keyframes fadeIn {
+ 0% {
+  opacity: 0;
+ }
+
+ 100% {
+  opacity: 1;
+ }
+}
+
+.card-head:hover {
+ box-shadow: 3px 4px 56px 9px rgba(0, 0, 0, 0.77);
+ -webkit-box-shadow: 3px 4px 56px 9px rgba(0, 0, 0, 0.77);
+ -moz-box-shadow: 3px 4px 56px 9px rgba(0, 0, 0, 0.77);
+}
+
+.card-image {
+ position: relative;
+}
+
+.card-image>img {
+ width: 100%;
+
+ box-shadow: 16px 4px 52px 6px rgba(0, 0, 0, 0.75) inset;
+
+}
+
+.card-image>span {
+ position: absolute;
+ top: 0px;
+ left: 0px;
+ margin: 0.5rem;
+ font-size: 0.7rem;
+ box-shadow: 3px 7px 74px 9px rgba(8, 96, 102, 0.64);
+ -webkit-box-shadow: 3px 7px 74px 9px rgba(8, 96, 102, 0.64);
+ -moz-box-shadow: 3px 7px 74px 9px rgba(8, 96, 102, 0.64);
+ border: 1px solid #07A0E4;
+ padding: 0.5rem;
+ background-color: #0386bed9;
+ border-radius: 20%;
+ color: whitesmoke;
+ font-weight: bolder;
+}
+
+.card-body {
+ background-color: whitesmoke;
+ padding: 1.5rem;
+
+}
+
+.card-body>button {
+ border-radius: 80px;
+ cursor: pointer;
+ font-size: 0.7rem;
+ font-weight: bolder;
+ color: whitesmoke;
+ background-color: #FE0000;
+ padding:0.5rem 1.5rem;
+ border: 5px inset #ff5050;
+ /* background: #ffffff; */
+}
+
+.card-body>button:active {
+ background-color: #510404;
+ color: blanchedalmond;
+
+}
+
+

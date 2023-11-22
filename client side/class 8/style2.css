@@ -1,0 +1,49 @@
+.Topic_postion {
+ padding: 15px;
+ border: 2px solid blueviolet;
+ background-color: royalblue;
+position: relative;
+
+}
+
+.Topic_postion>div {
+ display: inline-block;
+ padding: 7px;
+ background-color: black;
+ color: white;
+ text-align: center;
+ margin: 3px;
+ border: 2px solid rebeccapurple;
+}
+/* 
+.Topic_postion>div:nth-child(2) {
+ background-color: cadetblue;
+ position: relative;
+ position : relative; enables offset (left,right,top,bottom)
+ top: 5rem;
+ z-index: 97;
+} */
+
+/* .Topic_postion > div:nth-child(3){
+position: relative;
+left: ;
+right: ;
+top: ;
+bottom: ;
+
+z-index: 99;
+top:4rem ;
+} */
+
+
+
+.Topic_postion>div:nth-child(2) {
+ background-color: cadetblue;
+ /* position: fixed;
+ bottom: 0px; */
+
+ /* width: 90%; */
+ /* top: 0px; */
+ /* position : absolute; enables offset (left,right,top,bottom) */  
+}
+

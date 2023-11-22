@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App</title>
+  <style>
+    body {
+      background-color: #222;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    #quizBox {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
+      flex-direction: column;
+      padding: 1.3rem;
+      box-shadow: inset 1px 2px 7px black;
+      border-radius: 10px;
+
+    }
+
+    #options {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 1rem;
+      /* justify-content: center; */
+      /* flex-direction: column; */
+    }
+
+    #options>input,
+    #options>label {
+      margin: 15px 5px;
+      transition: all 1s ease-in-out;
+    }
+
+    #NEXT {
+      background-color: black;
+      color: white;
+      box-shadow: inset 1px 2px 3px white;
+      border-radius: 15px;
+      padding: 0.3rem;
+      font-size: 1rem;
+      font-weight: bolder;
+      width: 50%;
+      cursor: pointer;
+    }
+
+    #NEXT:active {
+      box-shadow: inset 3px 5px 15px white;
+      color: #a3a1a1;
+    }
+  </style>
+</head>
+
+<body>
+  <h1> QUIZ APP</h1>
+
+  <div id="quizBox">
+
+    <h3 id="question"></h3>
+
+    <span id="Error"></span>
+
+    <div id="options">
+
+    </div>
+
+
+
+    <label for="" class="label"></label>
+    <input type="radio" name="" class="input" id="">
+    <label for="" class="label"></label>
+    <input type="radio" name="" class="input" id="">
+    <label for="" class="label"></label>
+    <input type="radio" name="" class="input" id="">
+    <label for="" class="label"></label>
+    <input type="radio" name="" class="input" id="">
+    <label for="" class="label"></label>
+    <input type="radio" name="" class="input" id="">
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

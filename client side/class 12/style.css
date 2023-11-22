@@ -1,0 +1,68 @@
+*{
+ margin: 0;
+ padding: 0;
+}
+.Header {
+ display: flex;
+ flex-wrap: wrap;
+ background-color: rebeccapurple;
+ font-size: 1.3rem;
+ color: white;
+ padding: 15px;
+ font-weight: bolder;
+
+}
+
+.mainNav {
+ display: flex;
+ flex-wrap: wrap;
+ /* border: 3px solid red; */
+ /* flex: 1; */
+ width: 100%;
+ padding: 7px;
+ justify-content: space-between;
+
+}
+
+.main_logoIMage {
+ display: flex;
+ flex-wrap: wrap;
+ align-items: center;
+/* border: 2px solid black; */
+
+width: 30%;
+}
+
+.logo {
+ background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZk_4vNPH0F6HuH30WKiYw2Nthi9DTIsQ68ofGgS4VS1PrTAgodTIVy4eGiqAxbJyYLqU&usqp=CAU");
+ padding: 7px;
+ background-repeat: no-repeat;
+ background-size: 100% 100%;
+ background-position: center;
+ border-radius: 55%;
+ /* background-color: aqua; */
+ width: 15%;
+ height: 55px;
+ box-shadow: inset 5px 7px 5px black;
+}
+
+.navbarMenu {
+ display: flex;
+ flex-wrap: wrap;
+ /* border: 2px solid black; */
+ justify-content: center;
+align-content: center;
+}
+
+.navbarMenu>li {
+ margin-right: 25px;
+ list-style: none;
+}
+
+.navbarMenu>li>a {
+ font-size: 2rem;
+ font-weight: bolder;
+ color: white;
+ text-decoration: none;
+
+}

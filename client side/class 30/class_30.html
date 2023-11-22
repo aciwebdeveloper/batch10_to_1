@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Calculator</title>
+
+ <style>
+  #main_button {
+   display: grid;
+   grid-template-columns: auto auto auto;
+   gap: 3px;
+  }
+
+  #display {
+   text-align: center;
+  }
+
+  #result {
+   width: 97%;
+   margin: .3rem 0px;
+  }
+
+  #calculator {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   flex-direction: column;
+   padding: 1rem;
+  }
+ </style>
+</head>
+
+<body>
+ <div id="calculator">
+  <div id="display">
+   <input type="text" id="result" >
+   <span id="Error"></span>
+  </div>
+  <div id="main_button">
+  </div>
+ </div>
+
+ <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is CSS, how we can use it, and some properties of it</title>
+  <style>
+    /* 
+1.tag/element selector
+2.  Classes
+3. ID 
+ */
+
+    /* div {
+   border: 2px solid rebeccapurple;
+   background-color: black;
+   color: white;
+  } */
+
+    /* 
+   dot(.)class_name
+   (#)ID_name
+  */
+    /* .table1{
+    border-collapse: collapse;
+    border-color: rgb(36, 5, 68);
+    color: blueviolet;
+  }
+  .background{
+    background-color: rebeccapurple;
+    color: white;
+    font-weight: bolder;
+  } */
+
+
+    .table1 {
+      border-collapse: collapse;
+      border-color: rgb(36, 5, 68);
+      color: blueviolet;
+    }
+
+    #table {
+      border-collapse: collapse;
+      border-color: rgb(36, 5, 68);
+      color: rgb(43, 64, 226);
+    }
+
+    #background {
+      background-color: rebeccapurple;
+      color: white;
+      font-weight: bolder;
+    }
+
+    .textStyle {
+      font-size: 1rem;
+      /*  1 rem - 16 px 
+      text-shadow:x  y sharpness spreadness color; */
+
+      text-shadow: 3px 5px 2px rgb(138, 21, 255),
+        4px 7px 2px red;
+    }
+
+    div {
+      box-shadow: 3px 5px 5px rgb(36, 5, 68);
+      padding: 15px 25px 15px 25px;
+      margin: 15px 25px 15px 25px;
+    }
+
+    /* box-model */
+  </style>
+</head>
+
+<body>
+  <!-- 
+1. in-line css
+2. internal css
+3. external css
+
+
+-->
+
+  <div class="background">
+    <h1 class="textStyle"> I am in H1 Tag</h1>
+  </div>
+
+  <!-- 
+ <p class="textStyle"> 
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, repellendus ipsum alias, voluptatem culpa labore dignissimos ut voluptate delectus ad perspiciatis est harum explicabo facilis similique sit rerum expedita fuga vero modi reiciendis sed rem quia. Voluptates dicta perferendis quisquam, inventore repudiandae beatae provident itaque. Hic expedita officia, mollitia quis quos minima nam voluptas iusto! Ipsum placeat quas animi velit eligendi illum expedita possimus minima quia ullam maiores, deleniti esse dolores sequi doloremque iusto necessitatibus quaerat consectetur quasi. Veniam soluta, accusantium dolores quas quisquam provident perspiciatis saepe blanditiis esse architecto inventore suscipit velit sit temporibus, natus adipisci. Debitis, corporis nostrum?
+ </p> -->
+
+  <div class="table1">
+    <h3> i am another h3 tag in div tag</h3>
+  </div>
+
+
+  <table border="1" class="table1">
+    <tr>
+      <th>ID</th>
+      <th>Class</th>
+      <th>Address</th>
+      <th>COntact</th>
+      <th>Gender</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>XYZ</td>
+      <td>ok</td>
+      <td>13568</td>
+      <td>M</td>
+    </tr>
+  </table>
+
+
+</body>
+
+</html>

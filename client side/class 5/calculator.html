@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Calculator</title>
+    <style>
+        input[type="text"] {
+            width: 50%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        input[type="button"] {
+            width: 48px;
+            height: 48px;
+            font-size: 18px;
+            margin: 5px;
+        };
+
+    </style>
+</head>
+<body>
+    <h1>Calculator Assignment</h1>
+
+    <input type="text"  id="user_value" /><br>
+
+    <input type="button" value="1"  onclick="addValue('1')" />
+    <input type="button" value="2" onclick="addValue('2')" />
+    <input type="button" value="3" onclick="addValue('3')" />
+    <input type="button" value="+" onclick="addValue('+')" /><br>
+    <input type="button" value="4" onclick="addValue('4')" />
+    <input type="button" value="5" onclick="addValue('5')" />
+    <input type="button" value="6" onclick="addValue('6')" />
+    <input type="button" value="-" onclick="addValue('-')" /><br>
+    <input type="button" value="7" onclick="addValue('7')" />
+    <input type="button" value="8" onclick="addValue('8')" />
+    <input type="button" value="9" onclick="addValue('9')" />
+    <input type="button" value="*" onclick="addValue('*')" /><br>
+    <input type="button" value="C" onclick="clear1()" />
+    <input type="button" value="0" onclick="addValue('0')" />
+    <input type="button" value="=" onclick="solve()" />
+    <input type="button" value="/" onclick="addValue('/')" />
+    <input type="button" value="del" onclick="deleteValue()">
+
+</body>
+
+
+<script>
+
+
+function deleteValue()
+{ 
+ var userValue = document.getElementById('user_value').value;
+   
+ var result = '';
+  
+  for(var i = 0; i < userValue.length -1; i++)
+  {
+     if(i < userValue.length)
+     {
+       result += userValue[i];
+     }
+  }
+
+   document.getElementById('user_value').value = result;
+}
+
+function clear1()
+{
+   document.getElementById('user_value').value = '';
+}
+
+function addValue(myValue)
+{
+   document.getElementById('user_value').value += myValue;
+}
+
+function solve()
+{
+   var userInput = document.getElementById('user_value').value;
+   var result = eval(userInput);
+   document.getElementById('user_value').value = result;
+}
+
+</script>
+
+</html>
