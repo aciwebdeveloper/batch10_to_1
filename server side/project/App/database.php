@@ -32,7 +32,7 @@ public function __construct(){
 }
 
 
-// insert function 
+// universal insert function 
 public function MyInsert($table,$data){
 /* 
 $table = table name
@@ -64,7 +64,7 @@ if ($this->CheckTable($table)) {
   VALUES ('{$values}')
     ";
 
-echo $this->execute($this->Query,"DATA HAS BEEN ADDED");
+ return $this->execute($this->Query,null,null,true);
 
  
 
@@ -81,7 +81,66 @@ echo $help->ErrorMSG("This {$table} is NOT exist");
 }
 
 
+// universal query execute
 
+public function SQL($query,$msg=null){
+  $this->Query= $query;
+
+ echo $this->execute($this->Query,$msg);
+}
+
+// universal delete Function
+
+
+public function delete($table, $where=null){
+ 
+$this->Query="DELETE FROM `{$table}` ";
+
+if ($where != null) {
+  $this->Query.= "WHERE {$where}";
+}
+
+echo $this->execute($this->Query,"DATA HAS BEEN DELETED");
+}
+// universal update function
+public function update($table,$data,$where=null){
+  $help = new helper(); // Association
+// UPDATE FROM `table_name` SET `column_name`= 'value' , `column_name`='value' 
+// WHERE id=7
+
+if ($this->CheckTable($table)) {
+
+  $this->Query="UPDATE `{$table}` SET ";
+
+
+
+  $dataFormat="";
+
+  foreach($data as $key => $value){
+    $dataFormat.="`{$key}`='{$value}',";
+  }
+
+  $dataFormat=rtrim($dataFormat,",");
+
+  $this->Query .=$dataFormat;
+
+if ($where != null) {
+  $this->Query .=" WHERE $where";
+}
+
+
+
+echo $this->execute($this->Query,"DATA HAS BEEN UPDATED",false,false);
+
+}
+else{
+  echo $help->ErrorMSG("This {$table} is NOT exist");
+}
+
+ 
+}
+
+// universal select function
 public function select($table,$row=null,$where=null,$join=null,$orderBY=null,$limit=null){
 /*
 SELECT column_name/* FROM table_name
@@ -129,9 +188,9 @@ if ($limit != null) {
   }
   
 
-  $per_page_record = ($page-1) * $limit;  
+  $per_page_record = ($page-1) * $limit;  //offset
 
- echo $this->Query.= " LIMIT {$per_page_record},{$limit}";  // LIMIT 0 5
+  $this->Query.= " LIMIT {$per_page_record},{$limit}";  // LIMIT 0 5
 }
 
 
@@ -164,22 +223,38 @@ $help= new helper();
 
      $fileURl=basename($_SERVER["PHP_SELF"]); // current page name 
 
+
+
+
      $page="";
+
 if (isset($_GET["page"]) && !empty($_GET["page"])) {
   $page=$_GET["page"];
 }else{
   $page=1;
 }
 
-
-
-$paginate="<nav aria-label='Page navigation example'>
+$prev=$page-1;
+// http://localhost/batch_10_to_1/server%20side/project/abc.php?page=0
+if ($page > 1) {
+  $paginate="<nav aria-label='Page navigation example'>
+  <ul class='pagination'>
+    <li class='page-item'>
+      <a class='page-link' href='{$fileURl}?page={$prev}' aria-label='Previous'>
+        <span aria-hidden='true' style='font-size:1.5rem'>&laquo;</span>
+      </a>
+    </li>";
+}
+else{
+  $paginate="<nav aria-label='Page navigation example'>
 <ul class='pagination'>
   <li class='page-item'>
-    <a class='page-link' href='#' aria-label='Previous'>
-      <span aria-hidden='true'>&laquo;</span>
+    <a class='page-link disabled' href='#' aria-label='Previous'>
+      <span aria-hidden='true' style='font-size:1.5rem'>&laquo;</span>
     </a>
   </li>";
+}
+
   // http://localhost/batch_10_to_1/server%20side/project/abc.php?page=1
   // http://localhost/batch_10_to_1/server%20side/project/abc.php?page=3
   $class="";
@@ -198,14 +273,28 @@ else{
 
 
 
+$next=$page+1;
 
+if ($page < $total_pages) {
+ 
   $paginate .= "<li class='page-item'>
-  <a class='page-link' href='#' aria-label='Next'>
-    <span aria-hidden='true'>&raquo;</span>
+  <a class='page-link' href='{$fileURl}?page={$next}' aria-label='Next'>
+    <span aria-hidden='true' style='font-size:1.5rem'>&raquo;</span>
   </a>
 </li>
 </ul>
 </nav>";
+}
+else{
+  $paginate .= "<li class='page-item'>
+  <a class='page-link disabled' href='#' aria-label='Next'>
+    <span aria-hidden='true' style='font-size:1.5rem'>&raquo;</span>
+  </a>
+</li>
+</ul>
+</nav>";
+}
+  
 
 
 echo $paginate;
@@ -297,7 +386,7 @@ if ($this->exe) {
 // extra functions
 
 
-public function execute($_query,$msg=null,$num_row=false){
+public function execute($_query,$msg=null,$num_row=false,$affect_row=false){
   $help = new helper(); // association
  
  $this->exe=$this->link->query($_query);
@@ -308,16 +397,25 @@ public function execute($_query,$msg=null,$num_row=false){
    return $this->my_num_row($num_row);
   }
 
-  else{
- 
+  if($affect_row){
+
+    if($this->link->affected_rows > 0){
+        $result =$this->link->affected_rows;
+
+      return $result;
+     }
+     else{
+      return false;
+     }
+
+  }
+
   if ($msg!=null) {
-   return $help->successMSG($msg);
-  }
-  else{
-   return true;
-  }
- 
-  }
+    return $help->successMSG($msg);
+   }
+   else{
+    return true;
+   }
  
  
   }else{

@@ -20,10 +20,18 @@ $obj= new DB();
  # code...
 // }
 $abc=[
- "user_name"=> "XYZ2",
- "email"=>"XYZ2@email.com",
+ "user_name"=> "NewLyUpdated",
+ "email"=>"UPDatedEmail@email.com",
  "password"=>123432
 ];
+// $qury="SELECT * from `users`";
+// $obj->SQL($qury,"QUERY EXECUTED");
+// $abc= $obj->GetResult();
+// $help->pre($abc);
+// $obj->update("users",$abc,"`user_id`=4");
+// $obj->delete("users","`user_id`=4");
+
+
 
 // $obj->MyInsert("users",$abc) 
  
